@@ -1,0 +1,20 @@
+def mysplit(string):
+    string = string.strip()
+    if string.isspace() == True:
+        return []
+    if len(string) == 0:
+        return []
+    string += ' '
+    string2 = ''
+    lista = []
+    for i in string:
+        if i != ' ':
+            string2 += i
+        else:
+            lista.append(string2)
+            del string2
+            string2 = ''
+    return lista
+
+string = '      haha poutz   '
+print(mysplit(string))
