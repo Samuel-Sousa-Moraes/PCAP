@@ -11,3 +11,18 @@ for c in texto:
     cifra += chr(cpoint)
 
 print(cifra)
+
+-----------------------------------------------
+cifra = input('Entre com a mensagem criptograda: ')
+texto = ''
+
+for c in cifra:
+    if c.isalpha() == False:
+        continue
+    c = c.upper()
+    cpoint = ord(c) - 1
+    if cpoint < ord('A'):
+        cpoint = ord('Z')
+    texto += chr(cpoint)
+
+print(texto)
