@@ -1,0 +1,13 @@
+texto = input("Entre com uma mensagem: ")
+cifra = ''
+
+for c in texto:
+    if c.isalpha() == False:
+        continue
+    c = c.upper()
+    cpoint = ord(c) + 1
+    if cpoint > ord('Z'):
+        cpoint = ord('A')
+    cifra += chr(cpoint)
+
+print(cifra)
