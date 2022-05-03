@@ -1,0 +1,20 @@
+def proc(t1, t2):
+    for c in t1:
+        pos = t2.find(c)
+        if pos == -1:
+            return False
+        else:
+            t2 = list(t2)
+            del t2[:pos+1]
+            t2 = ''.join(t2)
+    return True
+
+texto1 = input('Digite o texto 1: ')
+texto2 = input('Digite o texto 2: ')
+
+texto1 = texto1.replace(' ','')
+texto1 = texto1.upper()
+texto2 = texto2.replace(' ','')
+texto2 = texto2.upper()
+
+print(proc(texto1, texto2))
