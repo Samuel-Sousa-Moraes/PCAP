@@ -1,0 +1,16 @@
+data = input('Digite a data do seu aniversário (AAAAMMDD): ')
+while data.isdigit() == False or len(data) != 8:
+    data = input('Digite a data do seu aniversário (AAAAMMDD): ')
+    
+soma = 0
+
+for c in data:
+    soma += int(c)
+
+while soma > 10:
+    aux = str(soma)
+    soma = 0
+    for c in aux:
+        soma += int(c)
+
+print(f'O dígito da vida é: {soma}')
