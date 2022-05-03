@@ -1,0 +1,9 @@
+texto = input('Digite algum texto: ')
+texto = texto.replace(' ','')
+texto = texto.upper()
+texto2 = texto[::-1]
+
+if texto2 == texto:
+    print('É um palíndromo')
+else:
+    print('Não é um palíndromo')
