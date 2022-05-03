@@ -1,0 +1,58 @@
+print('Seja bem vindo a cifra de Cesar melhorada\n')
+escolha = int(input('''Se deseja cifrar a mensagem, digite 1
+Se deseja o processo inverso, digite 2
+==>'''))
+
+if escolha == 1:
+    texto = input('Entre com uma mensagem: ')
+    cifra = ''
+
+    desl = int(input('Entre com um valor de deslocamento: '))
+
+    while (desl <=0) or (desl > 25):
+        desl = int(input('Entre com um valor de deslocamento válido: '))
+
+    for c in texto:
+        if c.isupper() and c.isalpha():
+            if (desl+ord(c)) > ord('Z'):
+                cpoint = 64 + ((desl + ord(c)) - ord('Z'))
+            else:
+                cpoint = ord(c) + desl
+        elif c.islower() and c.isalpha():
+            if (desl+ord(c)) > ord('z'):
+                cpoint = 96 + ((desl + ord(c)) - ord('z'))
+            else:
+                cpoint = ord(c) + desl
+        else:
+            cpoint = ord(c)
+    
+        cifra += chr(cpoint)
+    print(cifra)
+
+elif escolha == 2:
+    cifra = input('Entre com uma mensagem cifrada: ')
+    texto = ''
+
+    desl = int(input('Entre com o valor de deslocamento: '))
+
+    while (desl <=0) or (desl > 25):
+        desl = int(input('Entre com o valor de deslocamento válido: '))
+
+    for c in cifra:
+        if c.isupper() and c.isalpha():
+            if (ord(c) - desl) < ord('A'):
+                cpoint = 91 - (ord('A') - (ord(c) - desl))
+            else:
+                cpoint = ord(c) - desl
+        elif c.islower() and c.isalpha():
+            if (ord(c) - desl) < ord('a'):
+                cpoint = 123 - (ord('a') - (ord(c) - desl))
+            else:
+                cpoint = ord(c) - desl
+        else:
+            cpoint = ord(c)
+    
+        texto += chr(cpoint)
+    print(texto)
+else:
+    print('O número digitado não corresponde a uma escolha válida!')
