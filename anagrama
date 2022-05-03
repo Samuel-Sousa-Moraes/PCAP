@@ -1,0 +1,14 @@
+texto1 = input('Digite o 1º texto: ')
+texto2 = input('Digite o 2º texto: ')
+
+texto1 = texto1.replace(' ','')
+texto1 = texto1.upper()
+texto1 = sorted(texto1)
+texto2 = texto2.replace(' ','')
+texto2 = texto2.upper()
+texto2 = sorted(texto2)
+
+if texto1 == texto2:
+    print('Os textos formam um anagrama')
+else:
+    print('Os textos não formam um anagrama')
