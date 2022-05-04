@@ -1,0 +1,13 @@
+def read_int(prompt, mn, mx):
+    try:
+        valor = int(input(prompt))
+        assert valor >= -10 and valor <= 10
+        return valor
+    except ValueError:
+        print('wrong input')
+    except AssertionError:
+        print('O valor não está no range permitido (-10..10)')
+
+v = read_int('Entre com um valor entre -10 e 10: ', -10, 10)
+if v != None:
+    print('O número é:',v)
