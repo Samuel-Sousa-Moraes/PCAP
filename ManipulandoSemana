@@ -1,0 +1,38 @@
+class ErroDiaSemana(Exception):
+    pass
+
+
+class Semana:
+    __semana = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun']
+    def __init__(self, dia):
+        if dia == 'Mon' or dia == 'Tue' or dia == 'Wed' or dia == 'Thu' or dia == 'Fri' or dia == 'Sat' or dia == 'Sun':
+            self.__dia = dia
+        else:
+            raise ErroDiaSemana
+
+    def __str__(self):
+        return self.__dia
+    
+    def add_dias(self, n):
+        __cont = n%7
+        for i in range(__cont):
+            if Semana.__semana[Semana.__semana.index(self.__dia)] == 'Sun':
+                self.__dia = 'Mon'
+            else:
+                self.__dia = Semana.__semana[Semana.__semana.index(self.__dia) + 1]
+    
+    def subtract_dias(self, n):
+        __cont = n%7
+        for i in range(__cont):
+            if Semana.__semana[Semana.__semana.index(self.__dia)] == 'Mon':
+                self.__dia = 'Sun'
+            else:
+                self.__dia = Semana.__semana[Semana.__semana.index(self.__dia) - 1]
+
+try:
+    teste = Semana('sat'.capitalize())
+    teste.add_dias(2)
+    teste.subtract_dias(8)
+    print(teste)
+except ErroDiaSemana:
+    print('Desculpe, não posso atender a sua solicitação')
