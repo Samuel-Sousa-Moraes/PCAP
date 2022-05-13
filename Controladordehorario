@@ -1,0 +1,68 @@
+class Timer:
+    def __init__(self,h = 0, m = 0, s = 0):
+        if (h >= 0 and h <= 23) and (m >= 0 and m <= 59) and (s >= 0 and s <= 59):
+            self.__h = h
+            self.__m = m
+            self.__s = s
+        else:
+            pass
+    def __str__(self):
+        if len(str(self.__h)) == 1 and len(str(self.__m)) == 1 and len(str(self.__s)) == 1:
+            return '0'+str(self.__h)+':'+'0'+str(self.__m)+':'+'0'+str(self.__s)
+        elif len(str(self.__h)) == 2 and len(str(self.__m)) == 1 and len(str(self.__s)) == 1:
+            return str(self.__h)+':'+'0'+str(self.__m)+':'+'0'+str(self.__s)
+        elif len(str(self.__h)) == 1 and len(str(self.__m)) == 2 and len(str(self.__s)) == 1:
+            return '0'+str(self.__h)+':'+str(self.__m)+':'+'0'+str(self.__s)
+        elif len(str(self.__h)) == 1 and len(str(self.__m)) == 1 and len(str(self.__s)) == 2:
+            return '0'+str(self.__h)+':'+'0'+str(self.__m)+':'+str(self.__s)
+        elif len(str(self.__h)) == 2 and len(str(self.__m)) == 2 and len(str(self.__s)) == 1:
+            return str(self.__h)+':'+str(self.__m)+':'+'0'+str(self.__s)
+        elif len(str(self.__h)) == 2 and len(str(self.__m)) == 1 and len(str(self.__s)) == 2:
+            return str(self.__h)+':'+'0'+str(self.__m)+':'+str(self.__s)
+        elif len(str(self.__h)) == 1 and len(str(self.__m)) == 2 and len(str(self.__s)) == 2:
+            return '0'+str(self.__h)+':'+str(self.__m)+':'+str(self.__s)
+        else:
+            return str(self.__h)+':'+str(self.__m)+':'+str(self.__s)
+            
+    def next_second(self):
+        self.__s += 1
+        if self.__s <= 59:
+            return None
+        else:
+            self.__s = 0
+            if self.__m <= 58:
+                self.__m += 1
+                return None
+            else:
+                self.__m = 0
+                if self.__h <= 22:
+                    self.__h += 1
+                    return None
+                else:
+                    self.__h = 0
+    
+    def prev_second(self):
+        self.__s -= 1
+        if self.__s >= 0:
+            return None
+        else:
+            self.__s = 59
+            if self.__m >= 1:
+                self.__m -= 1
+                return None
+            else:
+                self.__m = 59
+                if self.__h >= 1:
+                    self.__h -= 1
+                else:
+                    self.__h = 23
+try:
+    time = Timer(0, 0, 0)
+    print(time)
+    for i in range(123):
+        time.next_second()
+    for i in range(123):
+        time.prev_second()
+    print(time)
+except:
+   print('Não foi possível executar o programa.')
