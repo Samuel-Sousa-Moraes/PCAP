@@ -1,0 +1,26 @@
+from math import hypot
+
+class Ponto:
+    def __init__(self, x = 0.0, y = 0.0):
+        self.__x = x
+        self.__y = y
+    
+    def getx(self):
+        return self.__x
+    
+    def gety(self):
+        return self.__y
+    
+    def distancia_xy(self, x, y):
+        c1 = max(self.__x, x) - min(self.__x, x)
+        c2 = max(self.__y, y) - min(self.__y, y)
+        return hypot(c1, c2)
+    
+    def distancia_ponto(self, p):
+        c1 = max(self.__x, p.__x) - min(self.__x, p.__x)
+        c2 = max(self.__y, p.__y) - min(self.__y, p.__y)
+        return hypot(c1, c2)
+
+p1 = Ponto(2,3)
+p2 = Ponto(0,2)
+print(p1.distancia_ponto(p2))
