@@ -9,20 +9,18 @@ while True:
 
 newcpf = cpf[:9]
 
-soma = 0
+soma1 = 0
+soma2 = 0
 for a,b in enumerate(newcpf):
-    soma += (10-a) * int(b)
+    soma1 += (10-a) * int(b)
+    soma2 += (11-a) * int(b)
 
-calcpf = 11 - (soma % 11)
+calcpf = 11 - (soma1 % 11)
+d1 = 0 if(calcpf > 9) else calcpf 
 
-d1 = 0 if(calcpf > 9) else calcpf
+soma2 += d1 * 2
 
-soma = 0
-for a,b in enumerate(newcpf):
-    soma += (11-a) * int(b)
-soma += d1 * 2
-
-d2 = 11 - (soma % 11)
+d2 = 11 - (soma2 % 11)
 
 cpfvalido = newcpf + str(d1)+str(d2)
 
