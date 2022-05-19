@@ -1,0 +1,20 @@
+from random import randint
+
+cpf = str(randint(100000000, 999999999))
+
+soma1 = 0
+soma2 = 0
+for a,b in enumerate(cpf):
+    soma1 += (10-a) * int(b)
+    soma2 += (11-a) * int(b)
+
+calcpf = 11 - (soma1 % 11)
+d1 = 0 if(calcpf > 9) else calcpf 
+
+soma2 += d1 * 2
+
+d2 = 11 - (soma2 % 11)
+
+cpfvalido = cpf + str(d1)+str(d2)
+
+print(cpfvalido)
