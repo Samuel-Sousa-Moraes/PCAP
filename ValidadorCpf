@@ -1,0 +1,33 @@
+while True:
+    cpf = input('Digite o cpf: ')
+    try:
+        teste = int(cpf)
+    except:
+        print('O cpf digitado não é válido!')
+    if len(cpf) == 11:
+        break
+
+newcpf = cpf[:9]
+
+soma = 0
+for a,b in enumerate(newcpf):
+    soma += (10-a) * int(b)
+
+calcpf = 11 - (soma % 11)
+
+d1 = 0 if(calcpf > 9) else calcpf
+
+soma = 0
+for a,b in enumerate(newcpf):
+    soma += (11-a) * int(b)
+soma += d1 * 2
+
+d2 = 11 - (soma % 11)
+
+cpfvalido = newcpf + str(d1)+str(d2)
+
+if cpfvalido == cpf:
+    print('O CPF digitado é válido!')
+else:
+    print('O CPF digitado é inválido!')
+    print(f'CPF Correto: {cpfvalido}')
